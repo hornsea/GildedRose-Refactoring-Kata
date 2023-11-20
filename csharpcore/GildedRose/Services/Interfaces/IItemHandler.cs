@@ -9,9 +9,9 @@ namespace GildedRoseKata.Services.Interfaces
 {
     public interface IItemHandler
     {
-        void UpdateAllQualities(IList<Item> items);
+        void DegradeAllItems(IList<Item> items);
 
-        void UpdateQuality(Item item);
+        void DegradeItem(Item item);
 
         bool IsAgedBrie(Item item);
 
@@ -21,14 +21,14 @@ namespace GildedRoseKata.Services.Interfaces
 
         bool IsConjured(Item item);
 
-        void UpdateNormalItem(Item item);
+        void DegradeNormalItem(Item item);
 
-        void UpdateAgedBrie(Item item);
+        void DegradeAgedBrie(Item item);
 
-        void UpdateSulfuras(Item item);
+        void DegradeSulfuras(Item item);
         
-        void UpdateBackstagePass(Item item);
+        void DegradeBackstagePass(Item item);
 
-        void UpdateConjured(Item item);
+        void DegradeConjured(Item item);
     }
 }

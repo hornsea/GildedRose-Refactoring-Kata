@@ -9,6 +9,7 @@ public class GildedRose
     private readonly IList<Item> _items;
     private readonly IItemHandler _itemHandler;
 
+
     public GildedRose(IList<Item> items, IItemHandler itemHandler = null)
     {
         _items = items;
@@ -17,7 +18,7 @@ public class GildedRose
 
     public void UpdateQuality()
     {
-        _itemHandler.UpdateAllQualities(_items);
+        _itemHandler.DegradeAllItems(_items);
     }
 }
 
