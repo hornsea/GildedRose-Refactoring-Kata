@@ -9,6 +9,10 @@ namespace GildedRoseKata.Services.Interfaces
 {
     public interface IItemHandler
     {
+        (bool, IList<(Item, string)> invalidItems) ValidateAllItems(IList<Item> items);
+
+        (bool, string) ValidateItem(Item item);
+
         void DegradeAllItems(IList<Item> items);
 
         void DegradeItem(Item item);

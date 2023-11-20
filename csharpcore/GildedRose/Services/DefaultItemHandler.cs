@@ -41,6 +41,45 @@ namespace GildedRoseKata.Services
     /// </summary>
     public class DefaultItemHandler : IItemHandler
     {
+
+        /// <summary>
+        /// Validate all Items in the list are valid. 
+        /// This will be the limits on Quality
+        /// </summary>
+        /// <param name="items">List of all items</param>
+        /// <returns>List of tuple Item, string for invalid items. String will be error description</returns>
+        public (bool, IList<(Item, string)>) ValidateAllItems(IList<Item> items)
+        {
+            IList<(Item, string)> errors = new List<(Item, string)>();
+
+            foreach(var item in items)
+            {
+                var validation = ValidateItem(item);
+                if (!validation.Item1)
+                    errors.Add((item, validation.Item2));
+            }
+
+            return (errors.Count == 0, errors);
+        }
+        
+
+        /// <summary>
+        /// Validate an item. Cehck quality falls within correct range
+        /// </summary>
+        /// <param name="item">Item to check</param>
+        /// <returns>Tuple (bool, string) for valid and error (where applicable)</returns>
+        public (bool, string) ValidateItem(Item item)
+        {
+            if (item.Quality < 0)
+                return (false, "Quality cannot be negative");
+
+            if (item.Quality > 50 && !IsSulfuras(item))
+                return (false, "Quality cannot be > 50");
+
+            return (true, null);
+        }
+
+
         /// <summary>
         /// A day has passed - update the SellIn and Quality values for all the Items
         /// </summary>
@@ -183,5 +222,6 @@ namespace GildedRoseKata.Services
             item.SellIn--;
             item.Quality = Math.Max(0, item.Quality - (item.SellIn < 0 ? 4 : 2));
         }
+
     }
 }
