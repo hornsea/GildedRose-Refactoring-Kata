@@ -39,7 +39,7 @@ namespace GildedRoseKata.Services
     /// legendary item and as such its Quality is 80 and it never alters.
     /// 
     /// </summary>
-    public class DefaultItemHandler : IItemHandler
+    public class DefaultItemService : IItemService
     {
 
         /// <summary>
@@ -124,7 +124,7 @@ namespace GildedRoseKata.Services
         /// Check if the item is sulfuras. Extend this if rule become complicated.
         /// </summary>
         /// <param name="item">Item to check</param>
-        /// <returns>TRUE if this is sulfurus</returns>
+        /// <returns>TRUE if this is sulfuras</returns>
         public bool IsSulfuras(Item item) => item.Name.StartsWith("Sulfuras");
 
         /// <summary>

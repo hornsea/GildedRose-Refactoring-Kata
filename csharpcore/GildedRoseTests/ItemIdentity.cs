@@ -9,7 +9,7 @@ namespace GildedRoseTests;
 
 public class ItemIdentity
 {
-    IItemHandler _itemService = new DefaultItemHandler();
+    IItemService _itemService = new DefaultItemService();
 
     [Test]
     public void IsNormalItem()
@@ -36,7 +36,7 @@ public class ItemIdentity
     [Test]
     public void IsNotAgedBrie()
     {
-         var item = new Item { Name = "Crackin bit of Wensleydale", Quality = 49, SellIn = 12 };
+        var item = new Item { Name = "Crackin bit of Wensleydale", Quality = 49, SellIn = 12 };
 
         Assert.IsFalse(_itemService.IsAgedBrie(item), $"Item {item.Name} is Aged Brie");
     }
@@ -44,7 +44,7 @@ public class ItemIdentity
     [Test]
     public void IsSulfuras()
     {
-         var item = new Item { Name = "Sulfuras", Quality = 49, SellIn = 12 };
+        var item = new Item { Name = "Sulfuras", Quality = 49, SellIn = 12 };
 
         Assert.IsTrue(_itemService.IsSulfuras(item), $"Item {item.Name} is not Sulfuras");
     }
@@ -52,7 +52,7 @@ public class ItemIdentity
     [Test]
     public void IsNotSulfuras()
     {
-         var item = new Item { Name = "Egg Sarnie", Quality = 49, SellIn = 12 };
+        var item = new Item { Name = "Egg Sarnie", Quality = 49, SellIn = 12 };
 
         Assert.IsFalse(_itemService.IsSulfuras(item), $"Item {item.Name} is Sulfuras");
     }
@@ -60,7 +60,7 @@ public class ItemIdentity
     [Test]
     public void IsBackstagePass()
     {
-         var item = new Item { Name = "Backstage passes to see Merlin in Concert", Quality = 49, SellIn = 12 };
+        var item = new Item { Name = "Backstage passes to see Merlin in Concert", Quality = 49, SellIn = 12 };
 
         Assert.IsTrue(_itemService.IsBackstagePass(item), $"Item {item.Name} is not a backstage pass");
     }

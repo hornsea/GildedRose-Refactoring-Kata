@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GildedRoseKata.Services.Interfaces
 {
-    public interface IItemHandler
+    public interface IItemService
     {
         (bool, IList<(Item, string)> invalidItems) ValidateAllItems(IList<Item> items);
 

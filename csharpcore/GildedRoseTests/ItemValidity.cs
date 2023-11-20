@@ -9,7 +9,7 @@ namespace GildedRoseTests;
 
 public class ItemValidity
 {
-    IItemHandler _itemService = new DefaultItemHandler();
+    IItemService _itemService = new DefaultItemService();
 
     [Test]
     public void ValidNormalItem()

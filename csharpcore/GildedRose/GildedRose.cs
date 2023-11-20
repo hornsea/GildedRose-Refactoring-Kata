@@ -7,13 +7,13 @@ namespace GildedRoseKata;
 public class GildedRose
 {
     private readonly IList<Item> _items;
-    private readonly IItemHandler _itemHandler;
+    private readonly IItemService _itemHandler;
 
 
-    public GildedRose(IList<Item> items, IItemHandler itemHandler = null)
+    public GildedRose(IList<Item> items, IItemService itemHandler = null)
     {
         _items = items;
-        _itemHandler = itemHandler ?? (IItemHandler)new DefaultItemHandler();
+        _itemHandler = itemHandler ?? (IItemService)new DefaultItemService();
     }
 
     public void UpdateQuality()
